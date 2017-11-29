@@ -29,7 +29,7 @@ const options = {
 const QuestElement = props => (
     <Grid.Row columns={3} style={style} className="questElement">
         <Grid.Column width={4} style={styleColumn}>
-            <img src="/assets/logo1.png" style={{ height: '50px'}}/>
+            <img src="/assets/philes.png" style={{ height: '50px'}}/>
         </Grid.Column>
         <Grid.Column width={9} floated='left' style={styleQuest}>
             <Grid.Row>

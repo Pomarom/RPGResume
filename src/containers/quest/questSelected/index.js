@@ -37,7 +37,7 @@ const QuestSelected = props => (
     </Grid.Row>
     <Grid.Row style={style}>
         <Grid.Column width={3} style={{ marginTop: '5px'}}>
-            <img src="/assets/logo1.png" />
+            <img src="/assets/astekg.png" />
         </Grid.Column>
         <Grid.Column width={13} floated='left' style={styleQuest}>
             <Grid.Row>
