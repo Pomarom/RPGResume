@@ -26,22 +26,26 @@ const options = {
     shiftX: 0,
     shiftY: 0
   }
-const QuestElement = props => (
-    <Grid.Row columns={3} style={style} className="questElement">
-        <Grid.Column width={4} style={styleColumn}>
-            <img src="/assets/philes.png" style={{ height: '50px'}}/>
-        </Grid.Column>
-        <Grid.Column width={9} floated='left' style={styleQuest}>
-            <Grid.Row>
-                <b>{props.data.title}</b>
-            </Grid.Row>
-            <Grid.Row style={{fontSize: '21px'}}>
-                {props.data.sub}
-            </Grid.Row>
-        </Grid.Column>
-        <Grid.Column width={1}>
-        </Grid.Column>
-    </Grid.Row>
-)
 
+const QuestElement = props => {
+    const handleClick = () => {
+        props.handleClick(props.data);
+    }
+
+    return (
+        <Grid.Row columns={3} style={style} className="questElement" onClick={handleClick}>
+            <Grid.Column width={4} style={styleColumn}>
+                <img src={props.data.img} style={{ height: '50px'}}/>
+            </Grid.Column>
+            <Grid.Column width={10} floated='left' style={styleQuest}>
+                <Grid.Row>
+                    <b>{props.data.title}</b>
+                </Grid.Row>
+                <Grid.Row style={{fontSize: '21px'}}>
+                    {props.data.subtitle}
+                </Grid.Row>
+            </Grid.Column>
+        </Grid.Row>
+    )
+}
 export default QuestElement;

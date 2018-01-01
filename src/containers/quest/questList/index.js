@@ -5,17 +5,13 @@ import { connect } from 'react-redux'
 import { Button } from 'semantic-ui-react'
 import { Grid } from 'semantic-ui-react'
 import QuestElement from '../questElement'
+import questList from '../../../assets/content/quest';
 
-const quest = {
-    title: 'Application mobile',
-    sub: 'Lead developpeur'
-}
-const questList = [];
+import {
+    setHoverQuest,
+    setSelectedQuest
+} from '../../../modules/quests'
 
-for (let i = 0; i < 10; i += 1 ) {
-    console.log('salam');
-    questList.push(quest);
-}
 const style = {
     fontSize: '17px',
 }
@@ -34,10 +30,23 @@ const QuestList = props => (
     </Grid>
     <Grid divided="vertically" style={styleGrid} >
     {questList.map((quest) => {
-        return <QuestElement data={quest}/>
+        return <QuestElement data={quest} handleClick={props.setSelectedQuest}/>
     })}
     </Grid>
 </div>
 )
 
-export default QuestList;
+const mapStateToProps = ({ quests }) => ({
+    hoverQuest: quests.hoverQuest,
+    selectedQuest: quests.selectedQuest
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    setHoverQuest,
+    setSelectedQuest
+}, dispatch)
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(QuestList)
